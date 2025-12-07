@@ -1,0 +1,26 @@
+[build-system]
+requires = ["scikit-build-core >= 0.8", "pybind11 >= 2.10", "cmake >= 3.12"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "cholesky-cpp"
+version = "0.1.0"
+description = "Cholesky decomposition in C++ with pybind11"
+license = { text = "MIT" }
+authors = [{ name = "Daniel Ignatyev", email = "me@example.com" }]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.scikit-build]
+cmake.verbose = false
+cmake.build-type = "Release"
+cmake.args = []
+build-dir = "build/{wheel_tag}"
+wheel.cmake.args = []
+wheel.cmake.build-target = "cholesky_cpp"
+wheel.py-api = "cp310"
+editable.verbose = true
